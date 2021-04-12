@@ -1,0 +1,18 @@
+imports:
+- path: src/index.js
+- path: src/package.json
+resources:
+- name: telnyx-telegram-webhook
+  type: gcp-types/cloudfunctions-v1:projects.locations.functions
+  properties:
+    parent: projects/teachswtch
+    function: functions/telnyx-telegram-webhook
+    codeLocation: src/
+    codeBucket: telnyx
+    codeBucketObject: telnyx-telegram-webhook.zip
+    location: us-central1
+    timeout: 5s
+    runtime: nodejs10
+    availableMemoryMb: 128
+    entryPoint: handler
+
